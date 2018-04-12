@@ -2,7 +2,6 @@
 
 #include <QTimer>
 #include <shapebuilder.h>
-#include <shape.h>
 
 int OGLWidget::_width;
 int OGLWidget::_height;
@@ -17,17 +16,31 @@ OGLWidget::OGLWidget(QWidget *parent)
     OGLWidget::_width = this->width();
     OGLWidget::_height = this->height();
 
-    //    Shape *shape = ShapeBuilder::make(ShapeType::CUBE);
+    Shape *shape1 = ShapeBuilder::make(ShapeType::CUBE);
+    Shape *shape2 = ShapeBuilder::make(ShapeType::CUBE);
 
-    //    if (shape != nullptr)
-    //        shape->draw();
+    shapes.push_back(shape1);
+    shapes.push_back(shape2);
 
-    //    delete shape;
+    std::vector<Shape *>::iterator it;
+
+    for (it = shapes.begin(); it != shapes.end(); ++it) {
+        Shape *shape = *it;
+
+        if (shape != nullptr)
+            shape->draw();
+    }
 
 }
 
 OGLWidget::~OGLWidget(){
+    std::vector<Shape *>::iterator it;
 
+    for (it = shapes.begin(); it != shapes.end(); ++it) {
+        delete (*it);
+    }
+
+    shapes.clear();
 }
 
 void OGLWidget::initializeGL()

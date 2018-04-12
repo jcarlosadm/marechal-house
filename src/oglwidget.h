@@ -9,9 +9,12 @@
 #include <iostream>
 #include <QMouseEvent>
 #include <list>
+#include <vector>
+#include <shape.h>
 
 class OGLWidget : public QOpenGLWidget
 {
+
 public:
     OGLWidget(QWidget *parent = 0);
     ~OGLWidget();
@@ -23,8 +26,12 @@ protected:
     void mousePressEvent(QMouseEvent *event);
 
 private:
+    std::vector<Shape *> shapes;
+
     static int _width;
     static int _height;
+
+
 };
 
 #endif // OGLWIDGET_H
