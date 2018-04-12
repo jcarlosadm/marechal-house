@@ -18,6 +18,13 @@ OGLWidget::OGLWidget(QWidget *parent)
 
 OGLWidget::~OGLWidget(){
 
+//    Shape *shape = ShapeBuilder::make(ShapeType::CUBE);
+
+//    if (shape != nullptr)
+//        shape->draw();
+
+//    delete shape;
+
 }
 
 void OGLWidget::initializeGL()
