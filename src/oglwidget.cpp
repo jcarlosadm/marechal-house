@@ -1,6 +1,8 @@
 #include "oglwidget.h"
 
 #include <QTimer>
+#include <shapebuilder.h>
+#include <shape.h>
 
 int OGLWidget::_width;
 int OGLWidget::_height;
@@ -14,16 +16,17 @@ OGLWidget::OGLWidget(QWidget *parent)
 
     OGLWidget::_width = this->width();
     OGLWidget::_height = this->height();
+
+    //    Shape *shape = ShapeBuilder::make(ShapeType::CUBE);
+
+    //    if (shape != nullptr)
+    //        shape->draw();
+
+    //    delete shape;
+
 }
 
 OGLWidget::~OGLWidget(){
-
-//    Shape *shape = ShapeBuilder::make(ShapeType::CUBE);
-
-//    if (shape != nullptr)
-//        shape->draw();
-
-//    delete shape;
 
 }
 
