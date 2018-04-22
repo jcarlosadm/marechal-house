@@ -50,6 +50,7 @@ OGLWidget::~OGLWidget(){
 void OGLWidget::initializeGL()
 {
     resizeGL(this->width(),this->height());
+    glEnable(GL_DEPTH_TEST);
 }
 
 
@@ -65,41 +66,41 @@ void OGLWidget::paintGL()
               0.0, 1.0, 0.0 // up vector
               );
 
-    glBegin(GL_LINES);
-        glColor3f(0.2f, 0.5f, 0.1f);
-        glVertex3f(0.0f, 0.0f, 0.0f);
-        glVertex3f(50.0f, 0.0f, 0.0f);
-    glEnd();
+//    glBegin(GL_LINES);
+//        glColor3f(0.2f, 0.5f, 0.1f);
+//        glVertex3f(0.0f, 0.0f, 0.0f);
+//        glVertex3f(50.0f, 0.0f, 0.0f);
+//    glEnd();
 
-    glBegin(GL_LINES);
-        glColor3f(0.2f, 0.2f, 0.1f);
-        glVertex3f(0.0f, 0.0f, 0.0f);
-        glVertex3f(-50.0f, 0.0f, 0.0f);
-    glEnd();
+//    glBegin(GL_LINES);
+//        glColor3f(0.2f, 0.2f, 0.1f);
+//        glVertex3f(0.0f, 0.0f, 0.0f);
+//        glVertex3f(-50.0f, 0.0f, 0.0f);
+//    glEnd();
 
-    glBegin(GL_LINES);
-        glColor3f(0.2f, 0.5f, 0.1f);
-        glVertex3f(0.0f, 0.0f, 0.0f);
-        glVertex3f(0.0f, 50.0f, 0.0f);
-    glEnd();
+//    glBegin(GL_LINES);
+//        glColor3f(0.2f, 0.5f, 0.1f);
+//        glVertex3f(0.0f, 0.0f, 0.0f);
+//        glVertex3f(0.0f, 50.0f, 0.0f);
+//    glEnd();
 
-    glBegin(GL_LINES);
-        glColor3f(0.2f, 0.2f, 0.1f);
-        glVertex3f(0.0f, 0.0f, 0.0f);
-        glVertex3f(0.0f, -50.0f, 0.0f);
-    glEnd();
+//    glBegin(GL_LINES);
+//        glColor3f(0.2f, 0.2f, 0.1f);
+//        glVertex3f(0.0f, 0.0f, 0.0f);
+//        glVertex3f(0.0f, -50.0f, 0.0f);
+//    glEnd();
 
-    glBegin(GL_LINES);
-        glColor3f(0.2f, 0.5f, 0.1f);
-        glVertex3f(0.0f, 0.0f, 0.0f);
-        glVertex3f(50.0f, 50.0f, 0.0f);
-    glEnd();
+//    glBegin(GL_LINES);
+//        glColor3f(0.2f, 0.5f, 0.1f);
+//        glVertex3f(0.0f, 0.0f, 0.0f);
+//        glVertex3f(50.0f, 50.0f, 0.0f);
+//    glEnd();
 
-    glBegin(GL_LINES);
-        glColor3f(0.2f, 0.2f, 0.1f);
-        glVertex3f(0.0f, 0.0f, 0.0f);
-        glVertex3f(-50.0f, -50.0f, 0.0f);
-    glEnd();
+//    glBegin(GL_LINES);
+//        glColor3f(0.2f, 0.2f, 0.1f);
+//        glVertex3f(0.0f, 0.0f, 0.0f);
+//        glVertex3f(-50.0f, -50.0f, 0.0f);
+//    glEnd();
 
     glRotatef ((GLfloat) down_up, 1.0f, 0.0f, 0.0f);
     glRotatef((GLfloat) left_right, 0.0f, 1.0f, 0.0f);
