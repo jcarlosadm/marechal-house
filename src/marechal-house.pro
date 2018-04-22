@@ -30,14 +30,16 @@ SOURCES += \
         oglwidget.cpp \
         shape.cpp \
         cube.cpp \
-        shapebuilder.cpp
+        shapebuilder.cpp \
+    house.cpp
 
 HEADERS += \
         mainwindow.h \
         oglwidget.h \
         shape.h \
         cube.h \
-        shapebuilder.h
+        shapebuilder.h \
+    house.h
 
 FORMS += \
         mainwindow.ui

@@ -3,7 +3,7 @@
 
 #include <shape.h>
 
-enum ShapeType {CUBE, TRIANGLE, PLANE};
+enum ShapeType {HOUSE, CUBE, TRIANGLE, PLANE};
 
 class ShapeBuilder
 {

@@ -8,9 +8,11 @@
 #include <GL/glut.h>
 #include <iostream>
 #include <QMouseEvent>
+#include <QKeyEvent>
 #include <list>
 #include <vector>
 #include <shape.h>
+#include <math.h>
 
 class OGLWidget : public QOpenGLWidget
 {
@@ -24,12 +26,16 @@ protected:
     void resizeGL(int w, int h);
     void paintGL();
     void mousePressEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
+    void keyPressEvent(QKeyEvent *event);
+
 
 private:
     std::vector<Shape *> shapes;
 
     static int _width;
     static int _height;
+
 
 
 };

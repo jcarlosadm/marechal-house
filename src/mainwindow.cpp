@@ -10,6 +10,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     ui->openGLWidget->context();
+
+    ui->openGLWidget->setFocusPolicy(Qt::StrongFocus);
 }
 
 MainWindow::~MainWindow()
