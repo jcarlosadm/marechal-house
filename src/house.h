@@ -5,13 +5,13 @@
 
 class House : public Shape
 {
-
 public:
     House();
     ~House();
 
     void draw();
-
+private:
+    std::vector<Shape *> shapes;
 };
 
 #endif // HOUSE_H

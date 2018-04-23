@@ -35,9 +35,6 @@ private:
 
     static int _width;
     static int _height;
-
-
-
 };
 
 #endif // OGLWIDGET_H
