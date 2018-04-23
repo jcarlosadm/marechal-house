@@ -1,7 +1,7 @@
 #include "oglwidget.h"
+#include "floor.h"
 
 #include <QTimer>
-#include <shapebuilder.h>
 
 int OGLWidget::_width;
 int OGLWidget::_height;
@@ -10,9 +10,9 @@ static double cam_angle_left_right = 90;
 static double cam_angle_up_down = 0;
 static float adj_x = 0.0;
 static float adj_y = 0.0;
-static float adj_z = -10.0;
+static float adj_z = -15.0;
 
-static double world_angle_left_right = 90;
+static double world_angle_left_right = 0;
 
 OGLWidget::OGLWidget(QWidget *parent)
     : QOpenGLWidget(parent)
@@ -26,11 +26,13 @@ OGLWidget::OGLWidget(QWidget *parent)
     OGLWidget::_width = this->width();
     OGLWidget::_height = this->height();
 
-    Shape *shape1 = ShapeBuilder::make(ShapeType::HOUSE);
-    Shape *shape2 = ShapeBuilder::make(ShapeType::CUBE);
+    FloorBuilder fb;
+    // first floor
+    shapes.push_back(fb.set_parameters(0.0f,0.0f,-2.0f,10.0f,15.0f)->set_color(1.0f,0.0f,0.0f)->build());
+    fb.reset_builder();
+    // second floor
+    shapes.push_back(fb.set_parameters(0.0f,4.0f,2.0f,10.0f,8.0f)->set_color(1.0f,1.0f,0.0f)->build());
 
-    shapes.push_back(shape1);
-    shapes.push_back(shape2);
 }
 
 OGLWidget::~OGLWidget(){
@@ -149,6 +151,6 @@ void OGLWidget::resizeGL(int w, int h)
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-    gluPerspective(60.0, ratio, 1.0, 20.0);
+    gluPerspective(60.0, ratio, 1.0, 30.0);
 
 }
