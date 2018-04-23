@@ -6,9 +6,13 @@
 int OGLWidget::_width;
 int OGLWidget::_height;
 
-static int distance = 10;
-static int left_right = 0;
-static int down_up = 0;
+static double cam_angle_left_right = 90;
+static double cam_angle_up_down = 0;
+static float adj_x = 0.0;
+static float adj_y = 0.0;
+static float adj_z = -10.0;
+
+static double world_angle_left_right = 90;
 
 OGLWidget::OGLWidget(QWidget *parent)
     : QOpenGLWidget(parent)
@@ -25,15 +29,8 @@ OGLWidget::OGLWidget(QWidget *parent)
     Shape *shape1 = ShapeBuilder::make(ShapeType::HOUSE);
     Shape *shape2 = ShapeBuilder::make(ShapeType::CUBE);
 
-//    Shape *shape2 = ShapeBuilder::make(ShapeType::CUBE);
-
     shapes.push_back(shape1);
     shapes.push_back(shape2);
-
-//    shapes.push_back(shape2);
-
-
-
 }
 
 OGLWidget::~OGLWidget(){
@@ -46,66 +43,28 @@ OGLWidget::~OGLWidget(){
     shapes.clear();
 }
 
-
 void OGLWidget::initializeGL()
 {
     resizeGL(this->width(),this->height());
     glEnable(GL_DEPTH_TEST);
 }
 
-
-
 void OGLWidget::paintGL()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-
     glPushMatrix();
-    gluLookAt(0.0, 0.0, distance, // eye position
-              0, 0, 0, // center position
-              0.0, 1.0, 0.0 // up vector
-              );
+    gluLookAt(// eye position
+              adj_x, adj_y, adj_z,
+              // center position
+              adj_x + cos(cam_angle_left_right * 3.14 / 180.0) * cos(cam_angle_up_down * 3.14 / 180.0),
+                adj_y + sin(cam_angle_up_down * 3.14 / 180.0),
+                adj_z + sin(cam_angle_left_right * 3.14 / 180.0) * cos(cam_angle_up_down * 3.14 / 180.0),
+              // up vector
+              0.0, 1.0, 0.0);
 
-//    glBegin(GL_LINES);
-//        glColor3f(0.2f, 0.5f, 0.1f);
-//        glVertex3f(0.0f, 0.0f, 0.0f);
-//        glVertex3f(50.0f, 0.0f, 0.0f);
-//    glEnd();
-
-//    glBegin(GL_LINES);
-//        glColor3f(0.2f, 0.2f, 0.1f);
-//        glVertex3f(0.0f, 0.0f, 0.0f);
-//        glVertex3f(-50.0f, 0.0f, 0.0f);
-//    glEnd();
-
-//    glBegin(GL_LINES);
-//        glColor3f(0.2f, 0.5f, 0.1f);
-//        glVertex3f(0.0f, 0.0f, 0.0f);
-//        glVertex3f(0.0f, 50.0f, 0.0f);
-//    glEnd();
-
-//    glBegin(GL_LINES);
-//        glColor3f(0.2f, 0.2f, 0.1f);
-//        glVertex3f(0.0f, 0.0f, 0.0f);
-//        glVertex3f(0.0f, -50.0f, 0.0f);
-//    glEnd();
-
-//    glBegin(GL_LINES);
-//        glColor3f(0.2f, 0.5f, 0.1f);
-//        glVertex3f(0.0f, 0.0f, 0.0f);
-//        glVertex3f(50.0f, 50.0f, 0.0f);
-//    glEnd();
-
-//    glBegin(GL_LINES);
-//        glColor3f(0.2f, 0.2f, 0.1f);
-//        glVertex3f(0.0f, 0.0f, 0.0f);
-//        glVertex3f(-50.0f, -50.0f, 0.0f);
-//    glEnd();
-
-    glRotatef ((GLfloat) down_up, 1.0f, 0.0f, 0.0f);
-    glRotatef((GLfloat) left_right, 0.0f, 1.0f, 0.0f);
-
-//    glScalef( 2.0, 2.0, 0.0 );
+    // rotate around center
+    glRotatef(world_angle_left_right,0.0f,1.0f,0.0f);
 
     std::vector<Shape *>::iterator it;
 
@@ -136,48 +95,47 @@ void OGLWidget::mouseMoveEvent(QMouseEvent *event)
 
 void OGLWidget::keyPressEvent(QKeyEvent *event)
 {
-
-
     switch (event->key()) {
         case Qt::Key_D:
-//            observerPosition[0] -= 0.1;
+            cam_angle_left_right += 1.0;
             break;
 
         case Qt::Key_A:
-//            observerPosition[0] += 0.1;
+            cam_angle_left_right -= 1.0;
             break;
 
         case Qt::Key_S:
-//            observerPosition[1] -= 0.1;
-              distance += 1;
+            cam_angle_up_down -= 1.0;
             break;
 
         case Qt::Key_W:
-//            observerPosition[1] += 0.1;
-              distance -= 1;
+            cam_angle_up_down += 1.0;
             break;
 
         case(Qt::Key_Up):
-            down_up = (down_up + 5) % 360;
+            adj_x += cos(cam_angle_left_right * 3.14 / 180.0) * cos(cam_angle_up_down * 3.14 / 180.0);
+            adj_y += sin(cam_angle_up_down * 3.14 / 180.0);
+            adj_z += sin(cam_angle_left_right * 3.14 / 180.0) * cos(cam_angle_up_down * 3.14 / 180.0);
             break;
 
         case(Qt::Key_Down):
-            down_up = (down_up - 5) % 360;
+            adj_x -= cos(cam_angle_left_right * 3.14 / 180.0) * cos(cam_angle_up_down * 3.14 / 180.0);
+            adj_y -= sin(cam_angle_up_down * 3.14 / 180.0);
+            adj_z -= sin(cam_angle_left_right * 3.14 / 180.0) * cos(cam_angle_up_down * 3.14 / 180.0);
             break;
 
         case(Qt::Key_Left):
-            left_right = (left_right + 5) % 360;
+            world_angle_left_right -= 1.0;
             break;
 
         case(Qt::Key_Right):
-            left_right = (left_right - 5) % 360;
+            world_angle_left_right += 1.0;
             break;
 
         default:
             break;
     }
 }
-
 
 void OGLWidget::resizeGL(int w, int h)
 {
