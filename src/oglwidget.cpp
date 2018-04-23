@@ -6,11 +6,13 @@
 int OGLWidget::_width;
 int OGLWidget::_height;
 
-static double angle_left_right = 90;
-static double angle_up_down = 0;
+static double cam_angle_left_right = 90;
+static double cam_angle_up_down = 0;
 static float adj_x = 0.0;
 static float adj_y = 0.0;
 static float adj_z = -10.0;
+
+static double world_angle_left_right = 90;
 
 OGLWidget::OGLWidget(QWidget *parent)
     : QOpenGLWidget(parent)
@@ -55,11 +57,14 @@ void OGLWidget::paintGL()
     gluLookAt(// eye position
               adj_x, adj_y, adj_z,
               // center position
-              adj_x + cos(angle_left_right * 3.14 / 180.0) * cos(angle_up_down * 3.14 / 180.0),
-                adj_y + sin(angle_up_down * 3.14 / 180.0),
-                adj_z + sin(angle_left_right * 3.14 / 180.0) * cos(angle_up_down * 3.14 / 180.0),
+              adj_x + cos(cam_angle_left_right * 3.14 / 180.0) * cos(cam_angle_up_down * 3.14 / 180.0),
+                adj_y + sin(cam_angle_up_down * 3.14 / 180.0),
+                adj_z + sin(cam_angle_left_right * 3.14 / 180.0) * cos(cam_angle_up_down * 3.14 / 180.0),
               // up vector
               0.0, 1.0, 0.0);
+
+    // rotate around center
+    glRotatef(world_angle_left_right,0.0f,1.0f,0.0f);
 
     std::vector<Shape *>::iterator it;
 
@@ -92,31 +97,39 @@ void OGLWidget::keyPressEvent(QKeyEvent *event)
 {
     switch (event->key()) {
         case Qt::Key_D:
-            angle_left_right += 1.0;
+            cam_angle_left_right += 1.0;
             break;
 
         case Qt::Key_A:
-            angle_left_right -= 1.0;
+            cam_angle_left_right -= 1.0;
             break;
 
         case Qt::Key_S:
-            angle_up_down -= 1.0;
+            cam_angle_up_down -= 1.0;
             break;
 
         case Qt::Key_W:
-            angle_up_down += 1.0;
+            cam_angle_up_down += 1.0;
             break;
 
         case(Qt::Key_Up):
-            adj_x += cos(angle_left_right * 3.14 / 180.0) * cos(angle_up_down * 3.14 / 180.0);
-            adj_y += sin(angle_up_down * 3.14 / 180.0);
-            adj_z += sin(angle_left_right * 3.14 / 180.0) * cos(angle_up_down * 3.14 / 180.0);
+            adj_x += cos(cam_angle_left_right * 3.14 / 180.0) * cos(cam_angle_up_down * 3.14 / 180.0);
+            adj_y += sin(cam_angle_up_down * 3.14 / 180.0);
+            adj_z += sin(cam_angle_left_right * 3.14 / 180.0) * cos(cam_angle_up_down * 3.14 / 180.0);
             break;
 
         case(Qt::Key_Down):
-            adj_x -= cos(angle_left_right * 3.14 / 180.0) * cos(angle_up_down * 3.14 / 180.0);
-            adj_y -= sin(angle_up_down * 3.14 / 180.0);
-            adj_z -= sin(angle_left_right * 3.14 / 180.0) * cos(angle_up_down * 3.14 / 180.0);
+            adj_x -= cos(cam_angle_left_right * 3.14 / 180.0) * cos(cam_angle_up_down * 3.14 / 180.0);
+            adj_y -= sin(cam_angle_up_down * 3.14 / 180.0);
+            adj_z -= sin(cam_angle_left_right * 3.14 / 180.0) * cos(cam_angle_up_down * 3.14 / 180.0);
+            break;
+
+        case(Qt::Key_Left):
+            world_angle_left_right -= 1.0;
+            break;
+
+        case(Qt::Key_Right):
+            world_angle_left_right += 1.0;
             break;
 
         default:
