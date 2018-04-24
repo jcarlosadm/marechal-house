@@ -18,12 +18,13 @@ Painting::~Painting()
 
 void Painting::draw()
 {
-    glMatrixMode(GL_MODELVIEW);
-    glPushMatrix();
-    glTranslatef(-4.9f,0.0f,-5.0f);
+    if(this->square != nullptr){
+        glMatrixMode(GL_MODELVIEW);
+        glPushMatrix();
+        glTranslatef(-4.9f,0.0f,-5.0f);
 
-    if(this->square != nullptr)
         this->square->draw();
 
-    glPopMatrix();
+        glPopMatrix();
+    }
 }
