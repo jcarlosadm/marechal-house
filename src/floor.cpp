@@ -16,6 +16,8 @@ FloorBuilder::FloorBuilder()
 {
     this->floor = new Floor();
     this->squareBuilder = new SquareBuilder();
+    this->squareBuilder->set_color(DEFAULT_FLOOR_COLOR_RED,DEFAULT_FLOOR_COLOR_GREEN,
+                                   DEFAULT_FLOOR_COLOR_BLUE);
 }
 
 FloorBuilder::~FloorBuilder()
@@ -59,4 +61,6 @@ void FloorBuilder::reset_builder()
 
     this->floor = new Floor();
     this->squareBuilder = new SquareBuilder();
+    this->squareBuilder->set_color(DEFAULT_FLOOR_COLOR_RED,DEFAULT_FLOOR_COLOR_GREEN,
+                                   DEFAULT_FLOOR_COLOR_BLUE);
 }

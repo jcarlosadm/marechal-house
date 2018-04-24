@@ -33,7 +33,8 @@ SOURCES += \
         shapebuilder.cpp \
     house.cpp \
     square.cpp \
-    floor.cpp
+    floor.cpp \
+    wall.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -43,7 +44,8 @@ HEADERS += \
         shapebuilder.h \
     house.h \
     square.h \
-    floor.h
+    floor.h \
+    wall.h
 
 FORMS += \
         mainwindow.ui

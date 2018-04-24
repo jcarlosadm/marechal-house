@@ -4,6 +4,10 @@
 #include "square.h"
 #include "shape.h"
 
+#define DEFAULT_FLOOR_COLOR_RED 1.0f
+#define DEFAULT_FLOOR_COLOR_GREEN 1.0f
+#define DEFAULT_FLOOR_COLOR_BLUE 0.0f
+
 class Floor: public Shape
 {
     friend class FloorBuilder;

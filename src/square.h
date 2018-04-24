@@ -33,6 +33,9 @@ public:
      * @return SquareBuilder instance
      */
     SquareBuilder* set_n_vector(int n, float x, float y, float z);
+    float get_n_vector_x(int n);
+    float get_n_vector_y(int n);
+    float get_n_vector_z(int n);
     SquareBuilder* set_color(float red, float green, float blue);
     Square * build();
 private:

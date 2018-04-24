@@ -3,15 +3,92 @@
 #include <house.h>
 
 #include "floor.h"
+#include "wall.h"
 
 House::House()
 {
+    // floors
     FloorBuilder fb;
     // first floor
-    shapes.push_back(fb.set_parameters(0.0f,0.0f,-2.0f,10.0f,15.0f)->set_color(1.0f,0.0f,0.0f)->build());
+    shapes.push_back(fb.set_parameters(0.0f,0.0f,-2.0f,10.0f,15.0f)->build());
     fb.reset_builder();
     // second floor
-    shapes.push_back(fb.set_parameters(0.0f,4.0f,2.0f,10.0f,8.0f)->set_color(1.0f,1.0f,0.0f)->build());
+    shapes.push_back(fb.set_parameters(0.0f,3.75f,2.0f,10.0f,7.5f)->build());
+    fb.reset_builder();
+    // roof
+    shapes.push_back(fb.set_parameters(0.0f,0.0f,5.0f,10.0f,15.5f)->build());
+
+
+    // walls
+    WallBuilder wb;
+
+    // right wall
+    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(-5.0f,-7.5f)->set_second_point(-5.0f,7.5f)->build());
+    wb.reset_builder();
+
+    // left wall
+    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(5.0f,-7.5f)->set_second_point(5.0f,7.5f)->build());
+    wb.reset_builder();
+
+    // back wall
+    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(5.0f,7.5f)->set_second_point(4.2f,7.5f)->build());
+    wb.reset_builder();
+    shapes.push_back(wb.set_height(-2.0f,-0.5f)->set_first_point(4.2f,7.5f)->set_second_point(3.2f,7.5f)->build());
+    wb.reset_builder();
+    shapes.push_back(wb.set_height(1.0f,5.0f)->set_first_point(4.2f,7.5f)->set_second_point(3.2f,7.5f)->build());
+    wb.reset_builder();
+    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(3.2f,7.5f)->set_second_point(2.4f,7.5f)->build());
+    wb.reset_builder();
+    shapes.push_back(wb.set_height(-2.0f,-0.5f)->set_first_point(2.4f,7.5f)->set_second_point(1.4f,7.5f)->build());
+    wb.reset_builder();
+    shapes.push_back(wb.set_height(1.0f,5.0f)->set_first_point(2.4f,7.5f)->set_second_point(1.4f,7.5f)->build());
+    wb.reset_builder();
+    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(1.4f,7.5f)->set_second_point(0.6f,7.5f)->build());
+    wb.reset_builder();
+    shapes.push_back(wb.set_height(1.0f,5.0f)->set_first_point(0.6f,7.5f)->set_second_point(-0.6f,7.5f)->build());
+    wb.reset_builder();
+    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(-0.6f,7.5f)->set_second_point(-5.0f,7.5f)->build());
+    wb.reset_builder();
+
+    // front wall
+    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(5.0f,-7.5f)->set_second_point(4.2f,-7.5f)->build());
+    wb.reset_builder();
+    shapes.push_back(wb.set_height(-2.0f,-0.5f)->set_first_point(4.2f,-7.5f)->set_second_point(3.2f,-7.5f)->build());
+    wb.reset_builder();
+    shapes.push_back(wb.set_height(1.0f,5.0f)->set_first_point(4.2f,-7.5f)->set_second_point(3.2f,-7.5f)->build());
+    wb.reset_builder();
+    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(3.2f,-7.5f)->set_second_point(2.4f,-7.5f)->build());
+    wb.reset_builder();
+    shapes.push_back(wb.set_height(-2.0f,-0.5f)->set_first_point(2.4f,-7.5f)->set_second_point(1.4f,-7.5f)->build());
+    wb.reset_builder();
+    shapes.push_back(wb.set_height(1.0f,5.0f)->set_first_point(2.4f,-7.5f)->set_second_point(1.4f,-7.5f)->build());
+    wb.reset_builder();
+    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(1.4f,-7.5f)->set_second_point(0.6f,-7.5f)->build());
+    wb.reset_builder();
+    shapes.push_back(wb.set_height(1.0f,5.0f)->set_first_point(0.6f,-7.5f)->set_second_point(-0.6f,-7.5f)->build());
+    wb.reset_builder();
+    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(-0.6f,-7.5f)->set_second_point(-1.4f,-7.5f)->build());
+    wb.reset_builder();
+    shapes.push_back(wb.set_height(-2.0f,-0.5f)->set_first_point(-1.4,-7.5f)->set_second_point(-2.4f,-7.5f)->build());
+    wb.reset_builder();
+    shapes.push_back(wb.set_height(1.0f,5.0f)->set_first_point(-1.4f,-7.5f)->set_second_point(-2.4f,-7.5f)->build());
+    wb.reset_builder();
+    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(-2.4f,-7.5f)->set_second_point(-3.2f,-7.5f)->build());
+    wb.reset_builder();
+    shapes.push_back(wb.set_height(-2.0f,-0.5f)->set_first_point(-3.2f,-7.5f)->set_second_point(-4.2f,-7.5f)->build());
+    wb.reset_builder();
+    shapes.push_back(wb.set_height(1.0f,5.0f)->set_first_point(-3.2f,-7.5f)->set_second_point(-4.2f,-7.5f)->build());
+    wb.reset_builder();
+    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(-4.2f,-7.5f)->set_second_point(-5.0f,-7.5f)->build());
+    wb.reset_builder();
+
+    // first wall inside the house
+    shapes.push_back(wb.set_height(-2.0f,2.0f)->set_first_point(1.4f,-0.6f)->set_second_point(1.4f,-6.0f)->build());
+    wb.reset_builder();
+
+    // second wall inside the house
+    shapes.push_back(wb.set_height(-2.0f,2.0f)->set_first_point(-1.4f,4.0f)->set_second_point(-1.4f,0.0f)->build());
+
 }
 
 void House::draw()

@@ -33,6 +33,33 @@ SquareBuilder* SquareBuilder::set_n_vector(int n, float x, float y, float z)
     return this;
 }
 
+float SquareBuilder::get_n_vector_x(int n)
+{
+    if(n < 0)
+        n = 0;
+    if(n > 3)
+        n = 3;
+    return this->square->vectors[n][0];
+}
+
+float SquareBuilder::get_n_vector_y(int n)
+{
+    if(n < 0)
+        n = 0;
+    if(n > 3)
+        n = 3;
+    return this->square->vectors[n][1];
+}
+
+float SquareBuilder::get_n_vector_z(int n)
+{
+    if(n < 0)
+        n = 0;
+    if(n > 3)
+        n = 3;
+    return this->square->vectors[n][2];
+}
+
 SquareBuilder* SquareBuilder::set_color(float red, float green, float blue)
 {
     this->square->colors[0] = red;
