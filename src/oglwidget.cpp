@@ -1,5 +1,6 @@
 #include "oglwidget.h"
 #include "house.h"
+#include "painting.h"
 
 #include <QTimer>
 
@@ -27,6 +28,7 @@ OGLWidget::OGLWidget(QWidget *parent)
     OGLWidget::_height = this->height();
 
     shapes.push_back(new House());
+    shapes.push_back(new Painting());
 }
 
 OGLWidget::~OGLWidget(){

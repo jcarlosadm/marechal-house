@@ -2,6 +2,7 @@
 #define PAINTING_H
 
 #include "shape.h"
+#include "square.h"
 
 class Painting : public Shape
 {
@@ -10,6 +11,8 @@ public:
     ~Painting();
 
     void draw();
+private:
+    Square * square = nullptr;
 };
 
 #endif // PAINTING_H
