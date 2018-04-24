@@ -4,8 +4,8 @@
 
 Bust::Bust()
 {
-    this->base = new Parallelepiped(0.5f,1.5f,0.5f);
-    this->base2 = new Parallelepiped(0.5f,0.3f,0.5f);
+    this->base = new Parallelepiped(0.0f,0.0f,0.0f,0.5f,1.5f,0.5f);
+    this->base2 = new Parallelepiped(0.0f,0.0f,0.0f,0.5f,0.3f,0.5f);
 }
 
 Bust::~Bust()

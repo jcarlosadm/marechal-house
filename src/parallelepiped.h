@@ -7,7 +7,7 @@
 class Parallelepiped : public Shape
 {
 public:
-    Parallelepiped(float width, float height, float length);
+    Parallelepiped(float centerx, float centery, float centerz, float width, float height, float length);
     ~Parallelepiped();
 
     void draw();

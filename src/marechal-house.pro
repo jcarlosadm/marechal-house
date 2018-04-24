@@ -39,7 +39,8 @@ SOURCES += \
     stairs.cpp \
     painting.cpp \
     bust.cpp \
-    parallelepiped.cpp
+    parallelepiped.cpp \
+    table.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -55,7 +56,8 @@ HEADERS += \
     stairs.h \
     painting.h \
     bust.h \
-    parallelepiped.h
+    parallelepiped.h \
+    table.h
 
 FORMS += \
         mainwindow.ui

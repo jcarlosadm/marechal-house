@@ -1,10 +1,10 @@
 #include "parallelepiped.h"
 
-Parallelepiped::Parallelepiped(float width, float height, float length)
+Parallelepiped::Parallelepiped(float centerx, float centery, float centerz, float width, float height, float length)
 {
-    float ymin = 0.0f, ymax=height;
-    float xmin = -width/2, xmax = width/2;
-    float zmin = -length/2, zmax = length/2;
+    float ymin = centery, ymax = centery + height,
+            xmin = centerx - width/2, xmax = centerx + width/2,
+            zmin = centerz - length/2, zmax = centerz + length/2;
     SquareBuilder sb;
     shapes.push_back(sb.set_n_vector(0, xmax, ymin, zmax)->set_n_vector(1,xmax, ymin, zmin)->
                      set_n_vector(2,xmin,ymin, zmin)->set_n_vector(3,xmin, ymin, zmax)->build());
