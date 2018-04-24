@@ -27,11 +27,29 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    oglwidget.cpp
+        oglwidget.cpp \
+        shape.cpp \
+        cube.cpp \
+        shapebuilder.cpp \
+    house.cpp \
+    square.cpp \
+    floor.cpp \
+    wall.cpp \
+    door.cpp \
+    stairs.cpp
 
 HEADERS += \
         mainwindow.h \
-    oglwidget.h \
+        oglwidget.h \
+        shape.h \
+        cube.h \
+        shapebuilder.h \
+    house.h \
+    square.h \
+    floor.h \
+    wall.h \
+    door.h \
+    stairs.h
 
 FORMS += \
         mainwindow.ui
