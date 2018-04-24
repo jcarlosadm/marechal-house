@@ -34,7 +34,8 @@ SOURCES += \
     house.cpp \
     square.cpp \
     floor.cpp \
-    wall.cpp
+    wall.cpp \
+    door.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -45,7 +46,8 @@ HEADERS += \
     house.h \
     square.h \
     floor.h \
-    wall.h
+    wall.h \
+    door.h
 
 FORMS += \
         mainwindow.ui

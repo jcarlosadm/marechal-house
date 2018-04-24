@@ -4,6 +4,7 @@
 
 #include "floor.h"
 #include "wall.h"
+#include "door.h"
 
 House::House()
 {
@@ -17,7 +18,6 @@ House::House()
     fb.reset_builder();
     // roof
     shapes.push_back(fb.set_parameters(0.0f,0.0f,5.0f,10.0f,15.5f)->build());
-
 
     // walls
     WallBuilder wb;
@@ -88,6 +88,11 @@ House::House()
 
     // second wall inside the house
     shapes.push_back(wb.set_height(-2.0f,2.0f)->set_first_point(-1.4f,4.0f)->set_second_point(-1.4f,0.0f)->build());
+
+    // Doors
+    DoorBuilder db;
+    // front door
+    shapes.push_back(db.set_height(-2.0f,1.0f)->set_first_point(0.6f,-7.5f)->set_second_point(-0.6f,-7.5f)->build());
 
 }
 
