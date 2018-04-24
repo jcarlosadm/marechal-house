@@ -76,3 +76,10 @@ Square *SquareBuilder::build()
     return square;
 }
 
+void SquareBuilder::reset_builder()
+{
+    if(this->square != nullptr)
+        delete this->square;
+    this->square = new Square();
+}
+

@@ -1,12 +1,15 @@
 #ifndef SQUARE_H
 #define SQUARE_H
 
-class Square
+#include "shape.h"
+
+class Square : public Shape
 {
     friend class SquareBuilder;
 private:
     Square(){}
 public:
+    ~Square(){}
     void draw();
 private:
     float colors[3] = {1.0f,0.0f,0.0f};
@@ -38,6 +41,7 @@ public:
     float get_n_vector_z(int n);
     SquareBuilder* set_color(float red, float green, float blue);
     Square * build();
+    void reset_builder();
 private:
     Square * square = nullptr;
 };
