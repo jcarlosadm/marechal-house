@@ -36,7 +36,8 @@ SOURCES += \
     floor.cpp \
     wall.cpp \
     door.cpp \
-    stairs.cpp
+    stairs.cpp \
+    painting.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -49,7 +50,8 @@ HEADERS += \
     floor.h \
     wall.h \
     door.h \
-    stairs.h
+    stairs.h \
+    painting.h
 
 FORMS += \
         mainwindow.ui
