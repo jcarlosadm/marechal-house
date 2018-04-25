@@ -40,7 +40,8 @@ SOURCES += \
     painting.cpp \
     bust.cpp \
     parallelepiped.cpp \
-    table.cpp
+    table.cpp \
+    locker.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -57,7 +58,8 @@ HEADERS += \
     painting.h \
     bust.h \
     parallelepiped.h \
-    table.h
+    table.h \
+    locker.h
 
 FORMS += \
         mainwindow.ui

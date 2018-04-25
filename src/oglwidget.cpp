@@ -3,6 +3,7 @@
 #include "painting.h"
 #include "bust.h"
 #include "table.h"
+#include "locker.h"
 
 #include <QTimer>
 
@@ -33,6 +34,7 @@ OGLWidget::OGLWidget(QWidget *parent)
     shapes.push_back(new Painting());
     shapes.push_back(new Bust());
     shapes.push_back(new Table());
+    shapes.push_back(new Locker());
 }
 
 OGLWidget::~OGLWidget(){
