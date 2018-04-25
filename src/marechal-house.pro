@@ -41,7 +41,8 @@ SOURCES += \
     bust.cpp \
     parallelepiped.cpp \
     table.cpp \
-    locker.cpp
+    locker.cpp \
+    bed.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -59,7 +60,8 @@ HEADERS += \
     bust.h \
     parallelepiped.h \
     table.h \
-    locker.h
+    locker.h \
+    bed.h
 
 FORMS += \
         mainwindow.ui
