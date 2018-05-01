@@ -5,6 +5,7 @@
 #include "table.h"
 #include "locker.h"
 #include "bed.h"
+#include "door.h"
 
 #include <QTimer>
 
@@ -135,6 +136,10 @@ void OGLWidget::keyPressEvent(QKeyEvent *event)
 
         case(Qt::Key_Right):
             world_angle_left_right += 1.0;
+            break;
+
+        case(Qt::Key_Space):
+            Door::open_close();
             break;
 
         default:
