@@ -26,8 +26,8 @@
    <widget class="OGLWidget" name="openGLWidget">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>0</y>
+      <x>130</x>
+      <y>30</y>
       <width>871</width>
       <height>531</height>
      </rect>
@@ -46,15 +46,7 @@
      <enum>Qt::Vertical</enum>
     </property>
     <widget class="QWidget" name="verticalLayoutWidget">
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <widget class="QPushButton" name="pushButton">
-        <property name="text">
-         <string>door</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
+     <layout class="QVBoxLayout" name="verticalLayout"/>
     </widget>
    </widget>
   </widget>
@@ -64,17 +56,9 @@
      <x>0</x>
      <y>0</y>
      <width>1024</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
-  </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>

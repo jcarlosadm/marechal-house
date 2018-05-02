@@ -4,9 +4,9 @@
 #include "shape.h"
 #include "square.h"
 
-#define DEFAULT_WALL_COLOR_RED 0.0f
+#define DEFAULT_WALL_COLOR_RED 1.0f
 #define DEFAULT_WALL_COLOR_GREEN 1.0f
-#define DEFAULT_WALL_COLOR_BLUE 0.3f
+#define DEFAULT_WALL_COLOR_BLUE 1.0f
 
 class Wall: public Shape
 {

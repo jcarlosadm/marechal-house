@@ -20,7 +20,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
-{
-    Door::open_close();
-}
+//void MainWindow::on_pushButton_clicked()
+//{
+//    Door::open_close();
+//}
