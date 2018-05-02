@@ -4,9 +4,9 @@
 #include "shape.h"
 #include "square.h"
 
-#define DEFAULT_DOOR_COLOR_RED 0.5f
-#define DEFAULT_DOOR_COLOR_GREEN 1.0f
-#define DEFAULT_DOOR_COLOR_BLUE 0.3f
+#define DEFAULT_DOOR_COLOR_RED 0.0f
+#define DEFAULT_DOOR_COLOR_GREEN 0.0f
+#define DEFAULT_DOOR_COLOR_BLUE 0.5f
 
 class Door: public Shape
 {
