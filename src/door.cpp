@@ -85,6 +85,13 @@ DoorBuilder *DoorBuilder::set_color(float red, float green, float blue)
     return this;
 }
 
+DoorBuilder *DoorBuilder::set_texture(GLuint index)
+{
+    this->square_builder->set_texture(index);
+
+    return this;
+}
+
 Door *DoorBuilder::build()
 {
     this->door->translate_x = this->square_builder->get_n_vector_x(0);

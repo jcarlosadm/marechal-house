@@ -23,7 +23,7 @@ House::House()
     fb.reset_builder();
 
     // roof
-    shapes.push_back(fb.set_parameters(0.0f,0.0f,5.0f,10.0f,15.5f)->set_color(0.0f, 0.0f, 0.0f)->build());
+    shapes.push_back(fb.set_parameters(0.0f,0.0f,5.0f,10.0f,15.5f)->set_color(0.0f, 0.0f, 0.0f)->set_texture(13)->build());
 
     // walls
     WallBuilder wb;
@@ -75,7 +75,7 @@ House::House()
     DoorBuilder db;
 
     // front door
-    shapes.push_back(db.set_height(-2.0f,1.0f)->set_first_point(0.6f,-7.5f)->set_second_point(-0.6f,-7.5f)->build());
+    shapes.push_back(db.set_height(-2.0f,1.0f)->set_first_point(0.6f,-7.5f)->set_second_point(-0.6f,-7.5f)->set_texture(12)->build());
     // stairs
     shapes.push_back(new Stairs());
 
