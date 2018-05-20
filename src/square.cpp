@@ -1,15 +1,21 @@
 #include "square.h"
 #include <GL/glut.h>
+#include <texture.h>
 
 void Square::draw()
 {
-    glBegin(GL_QUADS);
-    glColor3f(this->colors[0], this->colors[1], this->colors[2]);
-    glVertex3f(this->vectors[0][0], this->vectors[0][1], this->vectors[0][2]);
-    glVertex3f(this->vectors[1][0], this->vectors[1][1], this->vectors[1][2]);
-    glVertex3f(this->vectors[2][0], this->vectors[2][1], this->vectors[2][2]);
-    glVertex3f(this->vectors[3][0], this->vectors[3][1], this->vectors[3][2]);
-    glEnd();
+    glBindTexture(GL_TEXTURE_2D, Texture::textures[0]);
+    glEnable(GL_TEXTURE_2D);
+        glBegin(GL_QUADS);
+//        glNormal3f(0, 0, 0);
+        glColor3f(this->colors[0], this->colors[1], this->colors[2]);
+        glTexCoord2i(0, 0); glVertex3f(this->vectors[0][0], this->vectors[0][1], this->vectors[0][2]);
+        glTexCoord2i(0, 1); glVertex3f(this->vectors[1][0], this->vectors[1][1], this->vectors[1][2]);
+        glTexCoord2i(1, 1); glVertex3f(this->vectors[2][0], this->vectors[2][1], this->vectors[2][2]);
+        glTexCoord2i(1, 0); glVertex3f(this->vectors[3][0], this->vectors[3][1], this->vectors[3][2]);
+        glEnd();
+    glDisable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 SquareBuilder::SquareBuilder()

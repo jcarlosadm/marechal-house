@@ -29,12 +29,12 @@ protected:
     void mouseMoveEvent(QMouseEvent *event);
     void keyPressEvent(QKeyEvent *event);
 
-
 private:
     std::vector<Shape *> shapes;
 
     static int _width;
     static int _height;
+
 };
 
 #endif // OGLWIDGET_H

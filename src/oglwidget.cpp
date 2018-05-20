@@ -6,6 +6,7 @@
 #include "locker.h"
 #include "bed.h"
 #include "door.h"
+#include "texture.h"
 
 #include <QTimer>
 
@@ -53,6 +54,10 @@ void OGLWidget::initializeGL()
 {
     resizeGL(this->width(),this->height());
     glEnable(GL_DEPTH_TEST);
+
+    Texture::loadTexture("parede.jpg", 0);
+    cout << Texture::textures[0] << endl;
+
 }
 
 void OGLWidget::paintGL()
