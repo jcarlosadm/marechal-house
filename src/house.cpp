@@ -6,6 +6,7 @@
 #include "wall.h"
 #include "door.h"
 #include "stairs.h"
+#include "parallelepiped.h"
 
 House::House()
 {
@@ -56,13 +57,11 @@ House::House()
     shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(-0.6f,7.5f)->set_second_point(-5.0f,7.5f)->build());
     wb.reset_builder();
 
+    GLuint textures[6] = {1,1,1,1,1,1};
     // front wall
-    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(5.0f,-7.5f)->set_second_point(0.6f,-7.5f)->set_texture(14)->build());
-    wb.reset_builder();
-    shapes.push_back(wb.set_height(1.0f,5.0f)->set_first_point(0.6f,-7.5f)->set_second_point(-0.6f,-7.5f)->set_texture(15)->build());
-    wb.reset_builder();
-    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(-0.6f,-7.5f)->set_second_point(-5.0f,-7.5f)->set_texture(16)->build());
-    wb.reset_builder();
+    shapes.push_back(new Parallelepiped(2.8f, -2.0f, -7.5f, 4.4f, 3.0f, 0.1f,textures));
+    shapes.push_back(new Parallelepiped(-2.8f, -2.0f, -7.5f, 4.4f, 3.0f, 0.1f,textures));
+    shapes.push_back(new Parallelepiped(0.0f, 1.0f, -7.5f, 10.0f, 4.0f, 0.1f,textures));
 
     // first wall inside the house
     shapes.push_back(wb.set_height(-2.0f,2.0f)->set_first_point(1.4f,-0.6f)->set_second_point(1.4f,-6.0f)->build());
