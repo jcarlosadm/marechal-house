@@ -13,7 +13,6 @@ using std::endl;
 
 class Texture
 {
-
 private:
     static sf::Image image;
     static bool loadImage(string name);
@@ -22,7 +21,6 @@ public:
     Texture() {}
     static bool loadTexture(string name, GLuint index);
     static GLuint textures[20];
-
 };
 
 #endif // TEXTURE_H
