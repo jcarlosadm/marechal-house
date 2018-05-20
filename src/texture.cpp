@@ -4,7 +4,7 @@ sf::Image Texture::image;
 GLuint Texture::textures[20];
 
 bool Texture::loadImage(string name) {
-    string path = "../images/" + name;
+    string path = "/home/moabson/projetos/marechal-house/images/" + name;
 
     cout << path << endl;
 

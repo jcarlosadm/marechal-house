@@ -56,7 +56,10 @@ void OGLWidget::initializeGL()
     glEnable(GL_DEPTH_TEST);
 
     Texture::loadTexture("parede.jpg", 0);
+    Texture::loadTexture("wood.jpg", 1);
+    Texture::loadTexture("armario.jpg", 2);
     cout << Texture::textures[0] << endl;
+    cout << Texture::textures[1] << endl;
 
 }
 

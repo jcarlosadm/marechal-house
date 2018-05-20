@@ -3,7 +3,16 @@
 
 Locker::Locker()
 {
-    shapes.push_back(new Parallelepiped(0.0f,-1.5f,0.0f,1.0f,2.0f,0.3f));
+    GLuint textures[6] = {
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+    };
+
+    shapes.push_back(new Parallelepiped(0.0f,-1.5f,0.0f,1.0f,2.0f,0.3f, textures));
 
     SquareBuilder sb;
     shapes.push_back(sb.set_n_vector(0,0.5f,-1.5f,0.15f)->set_n_vector(1,0.5f,-1.5f,-0.15f)->

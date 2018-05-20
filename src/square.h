@@ -16,7 +16,7 @@ public:
 private:
     float colors[3] = {1.0f,0.0f,0.0f};
     bool applyTexture = false;
-    GLuint texture;
+    GLuint texture = -1;
     float vectors[4][3] =
     {
         {0.0f,0.0f,0.0f},

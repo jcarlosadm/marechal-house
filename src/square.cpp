@@ -6,13 +6,19 @@ void Square::draw()
 {
 
     if (applyTexture) {
-        glBindTexture(GL_TEXTURE_2D, Texture::textures[0]);
+        glBindTexture(GL_TEXTURE_2D, Texture::textures[this->texture]);
         glEnable(GL_TEXTURE_2D);
     }
 
     glBegin(GL_QUADS);
-    glNormal3f(0, 0, 0);
-    glColor3f(this->colors[0], this->colors[1], this->colors[2]);
+//    glNormal3f(0, 0, 0);
+
+    if (applyTexture) {
+        glColor3f(1.0f, 1.0f, 1.0f);
+    } else {
+        glColor3f(this->colors[0], this->colors[1], this->colors[2]);
+    }
+
     glTexCoord2i(0, 0); glVertex3f(this->vectors[0][0], this->vectors[0][1], this->vectors[0][2]);
     glTexCoord2i(0, 1); glVertex3f(this->vectors[1][0], this->vectors[1][1], this->vectors[1][2]);
     glTexCoord2i(1, 1); glVertex3f(this->vectors[2][0], this->vectors[2][1], this->vectors[2][2]);
@@ -21,7 +27,7 @@ void Square::draw()
 
     if (applyTexture) {
         glDisable(GL_TEXTURE_2D);
-        glBindTexture(GL_TEXTURE_2D, 0);
+        glBindTexture(GL_TEXTURE_2D, Texture::textures[this->texture]);
     }
 }
 
@@ -49,7 +55,7 @@ SquareBuilder* SquareBuilder::set_n_vector(int n, float x, float y, float z)
 SquareBuilder* SquareBuilder::set_texture(GLuint index)
 {
     this->square->applyTexture = true;
-    this->square->texture = Texture::textures[index];
+    this->square->texture = index;
 
     return this;
 }

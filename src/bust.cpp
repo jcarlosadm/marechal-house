@@ -4,8 +4,28 @@
 
 Bust::Bust()
 {
-    this->base = new Parallelepiped(0.0f,0.0f,0.0f,0.5f,1.5f,0.5f);
-    this->base2 = new Parallelepiped(0.0f,0.0f,0.0f,0.5f,0.3f,0.5f);
+
+    GLuint texturesBase[6] = {
+        2, // 0 front
+        1, // 1 back
+        1, // 2 left
+        1, // 3 right
+        1, // 4 up
+        1  // 5 bottom
+    };
+
+    GLuint texturesBase2[6] = {
+        2, // 0 front
+        1, // 1 back
+        1, // 2 left
+        1, // 3 right
+        1, // 4 up
+        1  // 5 bottom
+    };
+
+
+    this->base = new Parallelepiped(0.0f,0.0f,0.0f,0.5f,1.5f,0.5f, texturesBase);
+    this->base2 = new Parallelepiped(0.0f,0.0f,0.0f,0.5f,0.3f,0.5f, texturesBase2);
 }
 
 Bust::~Bust()
