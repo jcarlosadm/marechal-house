@@ -27,9 +27,9 @@ WallBuilder::~WallBuilder()
         delete this->square_builder;
 }
 
-WallBuilder *WallBuilder::set_texture(GLuint index = 6)
+WallBuilder *WallBuilder::set_texture(GLuint index)
 {
-    this->square_builder->set_texture(6);
+    this->square_builder->set_texture(index);
     return this;
 }
 
