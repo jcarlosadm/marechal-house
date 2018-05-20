@@ -69,6 +69,9 @@ void OGLWidget::initializeGL()
     Texture::loadTexture("quadro.jpg", 11);
     Texture::loadTexture("porta.png", 12);
     Texture::loadTexture("telhado.jpg", 13);
+    Texture::loadTexture("front_house_left.jpg", 14);
+    Texture::loadTexture("front_house_top.jpg", 15);
+    Texture::loadTexture("front_house_right.jpg", 16);
 }
 
 void OGLWidget::paintGL()
