@@ -2,6 +2,8 @@
 #define SQUARE_H
 
 #include "shape.h"
+#include "texture.h"
+#include <GL/glu.h>
 
 class Square : public Shape
 {
@@ -13,6 +15,8 @@ public:
     void draw();
 private:
     float colors[3] = {1.0f,0.0f,0.0f};
+    bool applyTexture = false;
+    GLuint texture;
     float vectors[4][3] =
     {
         {0.0f,0.0f,0.0f},
@@ -40,6 +44,7 @@ public:
     float get_n_vector_y(int n);
     float get_n_vector_z(int n);
     SquareBuilder* set_color(float red, float green, float blue);
+    SquareBuilder* set_texture(GLuint index);
     Square * build();
     void reset_builder();
 private:

@@ -4,18 +4,25 @@
 
 void Square::draw()
 {
-    glBindTexture(GL_TEXTURE_2D, Texture::textures[0]);
-    glEnable(GL_TEXTURE_2D);
-        glBegin(GL_QUADS);
-//        glNormal3f(0, 0, 0);
-        glColor3f(this->colors[0], this->colors[1], this->colors[2]);
-        glTexCoord2i(0, 0); glVertex3f(this->vectors[0][0], this->vectors[0][1], this->vectors[0][2]);
-        glTexCoord2i(0, 1); glVertex3f(this->vectors[1][0], this->vectors[1][1], this->vectors[1][2]);
-        glTexCoord2i(1, 1); glVertex3f(this->vectors[2][0], this->vectors[2][1], this->vectors[2][2]);
-        glTexCoord2i(1, 0); glVertex3f(this->vectors[3][0], this->vectors[3][1], this->vectors[3][2]);
-        glEnd();
-    glDisable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D, 0);
+
+    if (applyTexture) {
+        glBindTexture(GL_TEXTURE_2D, Texture::textures[0]);
+        glEnable(GL_TEXTURE_2D);
+    }
+
+    glBegin(GL_QUADS);
+    glNormal3f(0, 0, 0);
+    glColor3f(this->colors[0], this->colors[1], this->colors[2]);
+    glTexCoord2i(0, 0); glVertex3f(this->vectors[0][0], this->vectors[0][1], this->vectors[0][2]);
+    glTexCoord2i(0, 1); glVertex3f(this->vectors[1][0], this->vectors[1][1], this->vectors[1][2]);
+    glTexCoord2i(1, 1); glVertex3f(this->vectors[2][0], this->vectors[2][1], this->vectors[2][2]);
+    glTexCoord2i(1, 0); glVertex3f(this->vectors[3][0], this->vectors[3][1], this->vectors[3][2]);
+    glEnd();
+
+    if (applyTexture) {
+        glDisable(GL_TEXTURE_2D);
+        glBindTexture(GL_TEXTURE_2D, 0);
+    }
 }
 
 SquareBuilder::SquareBuilder()
@@ -36,6 +43,14 @@ SquareBuilder* SquareBuilder::set_n_vector(int n, float x, float y, float z)
         this->square->vectors[n][1] = y;
         this->square->vectors[n][2] = z;
     }
+    return this;
+}
+
+SquareBuilder* SquareBuilder::set_texture(GLuint index)
+{
+    this->square->applyTexture = true;
+    this->square->texture = Texture::textures[index];
+
     return this;
 }
 

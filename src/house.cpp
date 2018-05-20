@@ -96,6 +96,7 @@ House::House()
 
     // Doors
     DoorBuilder db;
+
     // front door
     shapes.push_back(db.set_height(-2.0f,1.0f)->set_first_point(0.6f,-7.5f)->set_second_point(-0.6f,-7.5f)->build());
     // stairs
