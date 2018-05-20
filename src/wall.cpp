@@ -16,7 +16,7 @@ WallBuilder::WallBuilder()
     this->wall = new Wall();
     this->square_builder = new SquareBuilder();
     this->square_builder->set_color(DEFAULT_WALL_COLOR_RED,DEFAULT_WALL_COLOR_GREEN,
-                                    DEFAULT_WALL_COLOR_BLUE)->set_texture(1);
+                                    DEFAULT_WALL_COLOR_BLUE)->set_texture(0);
 }
 
 WallBuilder::~WallBuilder()
