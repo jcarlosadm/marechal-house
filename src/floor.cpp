@@ -44,6 +44,12 @@ FloorBuilder *FloorBuilder::set_color(float red, float green, float blue)
     return this;
 }
 
+FloorBuilder *FloorBuilder::set_texture(GLuint index)
+{
+    this->squareBuilder->set_texture(index);
+    return this;
+}
+
 Floor *FloorBuilder::build()
 {
     this->floor->square = this->squareBuilder->build();

@@ -60,6 +60,14 @@ void OGLWidget::initializeGL()
     Texture::loadTexture("armario.jpg", 2);
     Texture::loadTexture("whitebed.jpeg", 3);
     Texture::loadTexture("front_house.jpg", 4);
+    Texture::loadTexture("blackwood.png", 5);
+    Texture::loadTexture("wall_default.jpg", 6);
+    Texture::loadTexture("piso.png", 7);
+    Texture::loadTexture("escada.jpg", 8);
+    Texture::loadTexture("bust.png", 9);
+    Texture::loadTexture("head_2.jpg", 10);
+    Texture::loadTexture("quadro.jpg", 11);
+
     cout << Texture::textures[0] << endl;
     cout << Texture::textures[1] << endl;
 

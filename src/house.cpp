@@ -12,14 +12,14 @@ House::House()
     // floors
     FloorBuilder fb;
     // first floor
-    shapes.push_back(fb.set_parameters(0.0f,0.0f,-2.0f,10.0f,15.0f)->build());
+    shapes.push_back(fb.set_parameters(0.0f,0.0f,-2.0f,10.0f,15.0f)->set_texture(7)->build());
     fb.reset_builder();
     // second floor
-    shapes.push_back(fb.set_parameters(3.2f,3.75f,2.0f,3.6f,7.5f)->build());
+    shapes.push_back(fb.set_parameters(3.2f,3.75f,2.0f,3.6f,7.5f)->set_texture(7)->build());
     fb.reset_builder();
-    shapes.push_back(fb.set_parameters(0.7f,4.5f,2.0f,1.4f,6.0f)->build());
+    shapes.push_back(fb.set_parameters(0.7f,4.5f,2.0f,1.4f,6.0f)->set_texture(7)->build());
     fb.reset_builder();
-    shapes.push_back(fb.set_parameters(-2.5f,3.75f,2.0f,5.0f,7.5f)->build());
+    shapes.push_back(fb.set_parameters(-2.5f,3.75f,2.0f,5.0f,7.5f)->set_texture(7)->build());
     fb.reset_builder();
 
     // roof
@@ -89,11 +89,11 @@ House::House()
     wb.reset_builder();
 
     // first wall inside the house
-    shapes.push_back(wb.set_height(-2.0f,2.0f)->set_first_point(1.4f,-0.6f)->set_second_point(1.4f,-6.0f)->build());
+    shapes.push_back(wb.set_height(-2.0f,2.0f)->set_first_point(1.4f,-0.6f)->set_second_point(1.4f,-6.0f)->set_texture(0)->build());
     wb.reset_builder();
 
     // second wall inside the house
-    shapes.push_back(wb.set_height(-2.0f,2.0f)->set_first_point(-1.4f,4.0f)->set_second_point(-1.4f,0.0f)->build());
+    shapes.push_back(wb.set_height(-2.0f,2.0f)->set_first_point(-1.4f,4.0f)->set_second_point(-1.4f,0.0f)->set_texture(0)->build());
 
     // Doors
     DoorBuilder db;

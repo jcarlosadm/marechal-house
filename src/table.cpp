@@ -17,13 +17,13 @@ Table::Table()
 
     SquareBuilder sb;
     shapes.push_back(sb.set_n_vector(0,w/2,-2+h,-l/2)->set_n_vector(1,-w/2,-2+h,-l/2)->
-                     set_n_vector(2,-w/2,-2+h,l/2)->set_n_vector(3,w/2,-2+h,l/2)->build());
+                     set_n_vector(2,-w/2,-2+h,l/2)->set_n_vector(3,w/2,-2+h,l/2)->set_texture(1)->build());
     sb.reset_builder();
     shapes.push_back(sb.set_n_vector(0,(w - adjw)/2,-2+h,-(l-adjl)/2)->set_n_vector(1,-(w-adjw)/2,-2,-(l - adjl)/2)->
-                     set_n_vector(2,-(w-adjw)/2,-2,(l-adjl)/2)->set_n_vector(3,(w-adjw)/2,-2+h,(l-adjl)/2)->build());
+                     set_n_vector(2,-(w-adjw)/2,-2,(l-adjl)/2)->set_n_vector(3,(w-adjw)/2,-2+h,(l-adjl)/2)->set_texture(1)->build());
     sb.reset_builder();
     shapes.push_back(sb.set_n_vector(0,(w - adjw)/2,-2,-(l-adjl)/2)->set_n_vector(1,-(w-adjw)/2,-2+h,-(l - adjl)/2)->
-                     set_n_vector(2,-(w-adjw)/2,-2+h,(l-adjl)/2)->set_n_vector(3,(w-adjw)/2,-2,(l-adjl)/2)->build());
+                     set_n_vector(2,-(w-adjw)/2,-2+h,(l-adjl)/2)->set_n_vector(3,(w-adjw)/2,-2,(l-adjl)/2)->set_texture(1)->build());
 
     shapes.push_back(new Parallelepiped(0.0f,-2.0f+h-0.2f,0.0f,w-adjw,0.2f,l-adjl, textures));
 }

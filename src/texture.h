@@ -21,6 +21,7 @@ public:
     Texture() {}
     static bool loadTexture(string name, GLuint index);
     static GLuint textures[20];
+    static bool sphere;
 };
 
 #endif // TEXTURE_H
