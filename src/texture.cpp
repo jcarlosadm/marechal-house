@@ -31,7 +31,7 @@ bool Texture::loadTexture(string name, GLuint index) {
                         0,
                         GL_RGBA,
                         GL_UNSIGNED_BYTE,
-                        Textura::image.getPixelsPtr()
+                        Texture::image.getPixelsPtr()
                      );
         glBindTexture(GL_TEXTURE_2D, 0);
         return true;
