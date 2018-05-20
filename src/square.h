@@ -14,6 +14,7 @@ public:
     ~Square(){}
     void draw();
 private:
+    int normal_vec[3] = {0,0,0};
     float colors[3] = {1.0f,0.0f,0.0f};
     bool applyTexture = false;
     GLuint texture = -1;
@@ -45,6 +46,7 @@ public:
     float get_n_vector_z(int n);
     SquareBuilder* set_color(float red, float green, float blue);
     SquareBuilder* set_texture(GLuint index);
+    SquareBuilder* set_normal_vec(int values[3]);
     Square * build();
     void reset_builder();
 private:

@@ -11,7 +11,7 @@ void Square::draw()
     }
 
     glBegin(GL_QUADS);
-//    glNormal3f(0, 0, 0);
+    glNormal3f(normal_vec[0], normal_vec[1], normal_vec[2]);
 
     if (applyTexture) {
         glColor3f(1.0f, 1.0f, 1.0f);
@@ -56,6 +56,14 @@ SquareBuilder* SquareBuilder::set_texture(GLuint index)
 {
     this->square->applyTexture = true;
     this->square->texture = index;
+
+    return this;
+}
+
+SquareBuilder *SquareBuilder::set_normal_vec(int values[])
+{
+    for(int i = 0; i < 3; ++i)
+        this->square->normal_vec[i] = values[i];
 
     return this;
 }
