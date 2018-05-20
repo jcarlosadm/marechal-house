@@ -7,7 +7,7 @@ Table::Table()
     float adjw = w * 0.10f, adjl = l * 0.10f;
 
     GLuint textures[6] = {
-        2, // 0 front
+        1, // 0 front
         1, // 1 back
         1, // 2 left
         1, // 3 right
@@ -24,6 +24,7 @@ Table::Table()
     sb.reset_builder();
     shapes.push_back(sb.set_n_vector(0,(w - adjw)/2,-2,-(l-adjl)/2)->set_n_vector(1,-(w-adjw)/2,-2+h,-(l - adjl)/2)->
                      set_n_vector(2,-(w-adjw)/2,-2+h,(l-adjl)/2)->set_n_vector(3,(w-adjw)/2,-2,(l-adjl)/2)->build());
+
     shapes.push_back(new Parallelepiped(0.0f,-2.0f+h-0.2f,0.0f,w-adjw,0.2f,l-adjl, textures));
 }
 

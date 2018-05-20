@@ -6,7 +6,7 @@ Bust::Bust()
 {
 
     GLuint texturesBase[6] = {
-        2, // 0 front
+        1, // 0 front
         1, // 1 back
         1, // 2 left
         1, // 3 right
@@ -15,7 +15,7 @@ Bust::Bust()
     };
 
     GLuint texturesBase2[6] = {
-        2, // 0 front
+        1, // 0 front
         1, // 1 back
         1, // 2 left
         1, // 3 right

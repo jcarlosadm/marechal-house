@@ -21,8 +21,9 @@ House::House()
     fb.reset_builder();
     shapes.push_back(fb.set_parameters(-2.5f,3.75f,2.0f,5.0f,7.5f)->build());
     fb.reset_builder();
+
     // roof
-    shapes.push_back(fb.set_parameters(0.0f,0.0f,5.0f,10.0f,15.5f)->set_color(0.6f, 0.0f, 0.0f)->build());
+    shapes.push_back(fb.set_parameters(0.0f,0.0f,5.0f,10.0f,15.5f)->set_color(0.0f, 0.0f, 0.0f)->build());
 
     // walls
     WallBuilder wb;
