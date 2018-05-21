@@ -23,18 +23,19 @@ public:
 
 protected:
     void initializeGL();
+    void defineLighting();
     void resizeGL(int w, int h);
     void paintGL();
     void mousePressEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
     void keyPressEvent(QKeyEvent *event);
 
-
 private:
     std::vector<Shape *> shapes;
 
     static int _width;
     static int _height;
+
 };
 
 #endif // OGLWIDGET_H

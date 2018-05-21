@@ -6,6 +6,7 @@
 #include "locker.h"
 #include "bed.h"
 #include "door.h"
+#include "texture.h"
 
 #include <QTimer>
 
@@ -52,12 +53,70 @@ OGLWidget::~OGLWidget(){
 void OGLWidget::initializeGL()
 {
     resizeGL(this->width(),this->height());
+    glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+
+    glEnable(GL_COLOR_MATERIAL);
+    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHT0);
     glEnable(GL_DEPTH_TEST);
+    glShadeModel(GL_SMOOTH);
+
+    Texture::loadTexture("parede.jpg", 0);
+    Texture::loadTexture("wood.jpg", 1);
+    Texture::loadTexture("armario.jpg", 2);
+    Texture::loadTexture("whitebed.jpeg", 3);
+    Texture::loadTexture("front_house.jpg", 4);
+    Texture::loadTexture("blackwood.png", 5);
+    Texture::loadTexture("wall_default.jpg", 6);
+    Texture::loadTexture("piso.png", 7);
+    Texture::loadTexture("escada.jpg", 8);
+    Texture::loadTexture("bust.png", 9);
+    Texture::loadTexture("head_2.jpg", 10);
+    Texture::loadTexture("quadro.jpg", 11);
+    Texture::loadTexture("porta.png", 12);
+    Texture::loadTexture("telhado.jpg", 13);
+    Texture::loadTexture("left.jpg", 14);
+    Texture::loadTexture("top.png", 15);
+    Texture::loadTexture("right.jpg", 16);
+    Texture::loadTexture("orange.png", 17);
+    Texture::loadTexture("inner_left.png", 18);
+    Texture::loadTexture("inner_right.png", 19);
+}
+
+void OGLWidget::defineLighting()
+{
+    // http://www.inf.pucrs.br/~manssour/CG/p-Iluminacao/
+
+    GLfloat luzAmbiente[4]={0.2,0.2,0.2,1.0};
+    GLfloat luzDifusa[4]={1.0,1.0,1.0,1.0}; // "cor"
+    GLfloat luzEspecular[4]={2.0, 2.0, 2.0, 2.0};// "brilho"
+    GLfloat posicaoLuz[4]={0.0, 0.0, -2.0, 1.0};
+
+    // Capacidade de brilho do material
+    GLfloat especularidade[4]={1.0,1.0,1.0,1.0};
+    GLint especMaterial = 40;
+
+    // Define a refletância do material
+    glMaterialfv(GL_FRONT,GL_SPECULAR, especularidade);
+
+    // Define a concentração do brilho
+    glMateriali(GL_FRONT,GL_SHININESS,especMaterial);
+
+    // Ativa o uso da luz ambiente
+    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, luzAmbiente);
+
+    // Define os parâmetros da luz de número 0
+    glLightfv(GL_LIGHT0, GL_AMBIENT, luzAmbiente);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, luzDifusa );
+    glLightfv(GL_LIGHT0, GL_SPECULAR, luzEspecular );
+    glLightfv(GL_LIGHT0, GL_POSITION, posicaoLuz );
 }
 
 void OGLWidget::paintGL()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    defineLighting();
 
     glPushMatrix();
     gluLookAt(// eye position
@@ -154,10 +213,14 @@ void OGLWidget::resizeGL(int w, int h)
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
 
+    defineLighting();
+
     glViewport(0, 0, w, h);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
+
+
 
     gluPerspective(60.0, ratio, 1.0, 30.0);
 

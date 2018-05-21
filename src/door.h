@@ -33,6 +33,7 @@ public:
     DoorBuilder* set_first_point(float x, float z);
     DoorBuilder* set_second_point(float x, float z);
     DoorBuilder* set_color(float red, float green, float blue);
+    DoorBuilder* set_texture(GLuint index);
     Door * build();
     void reset_builder();
 private:

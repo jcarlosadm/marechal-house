@@ -16,7 +16,7 @@ WallBuilder::WallBuilder()
     this->wall = new Wall();
     this->square_builder = new SquareBuilder();
     this->square_builder->set_color(DEFAULT_WALL_COLOR_RED,DEFAULT_WALL_COLOR_GREEN,
-                                    DEFAULT_WALL_COLOR_BLUE);
+                                    DEFAULT_WALL_COLOR_BLUE)->set_texture(DEFAULT_WALL_TEXTURE);
 }
 
 WallBuilder::~WallBuilder()
@@ -25,6 +25,18 @@ WallBuilder::~WallBuilder()
         delete this->wall;
     if (this->square_builder != nullptr)
         delete this->square_builder;
+}
+
+WallBuilder *WallBuilder::set_texture(GLuint index)
+{
+    this->square_builder->set_texture(index);
+    return this;
+}
+
+WallBuilder *WallBuilder::set_normal(int x, int y, int z)
+{
+    this->square_builder->set_normal_vec(x, y, z);
+    return this;
 }
 
 WallBuilder *WallBuilder::set_height(float ymin, float ymax)
@@ -82,5 +94,5 @@ void WallBuilder::reset_builder()
     this->wall = new Wall();
     this->square_builder = new SquareBuilder();
     this->square_builder->set_color(DEFAULT_WALL_COLOR_RED,DEFAULT_WALL_COLOR_GREEN,
-                                    DEFAULT_WALL_COLOR_BLUE);
+                                    DEFAULT_WALL_COLOR_BLUE)->set_texture(DEFAULT_WALL_TEXTURE);
 }

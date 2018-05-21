@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui opengl
-LIBS     += -lGLU -lGL -lglut
+LIBS     += -lGLU -lGL -lglut -lsfml-graphics -lsfml-window -lsfml-system
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -42,7 +42,8 @@ SOURCES += \
     parallelepiped.cpp \
     table.cpp \
     locker.cpp \
-    bed.cpp
+    bed.cpp \
+    texture.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -61,7 +62,8 @@ HEADERS += \
     parallelepiped.h \
     table.h \
     locker.h \
-    bed.h
+    bed.h \
+    texture.h
 
 FORMS += \
         mainwindow.ui

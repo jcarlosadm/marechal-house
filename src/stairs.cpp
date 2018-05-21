@@ -1,23 +1,24 @@
 #include "stairs.h"
 
 #include "square.h"
+#include "parallelepiped.h"
 
 #include <GL/glu.h>
 
 Stairs::Stairs()
 {
-    SquareBuilder sb;
+    GLuint textures[6] = {1,1,1,1,1,1};
+
     // first stairs
-    shapes.push_back(sb.set_n_vector(0,0.0f,-2.0f,-2.0f)->set_n_vector(1,-1.4f,-2.0f,-2.0f)->
-                     set_n_vector(2,-1.4f,0.0f,1.0f)->set_n_vector(3,0.0f,0.0f,1.0f)->build());
+    for(int i = 0; i < 10; ++i)
+        shapes.push_back(new Parallelepiped(-0.7f, -2.0f + i*0.2f, -2.0f + i*0.3f, 1.35f, 0.2f, 0.3f, textures));
+
     // base
-    sb.reset_builder();
-    shapes.push_back(sb.set_n_vector(0,1.4f,0.0f,1.0f)->set_n_vector(1,-1.4f,0.0f,1.0f)->
-                     set_n_vector(2,-1.4f,0.1f,2.0f)->set_n_vector(3,1.4f,0.1f,2.0f)->build());
-    sb.reset_builder();
+    shapes.push_back(new Parallelepiped(0.0f, -0.2f, 1.5f, 2.7f, 0.2f, 1.2f, textures));
+
     // second stairs
-    shapes.push_back(sb.set_n_vector(0,1.4f,2.0f,-2.0f)->set_n_vector(1,0.0f,2.0f,-2.0f)->
-                     set_n_vector(2,0.0f,0.0f,1.0f)->set_n_vector(3,1.4f,0.0f,1.0f)->build());
+    for(int i = 0; i < 10; ++i)
+        shapes.push_back(new Parallelepiped(0.7f, 0.0f + i*0.2f, 1.0f - i*0.3f, 1.35f, 0.2f, 0.3f, textures));
 }
 
 Stairs::~Stairs()

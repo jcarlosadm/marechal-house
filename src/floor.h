@@ -27,11 +27,14 @@ public:
     ~FloorBuilder();
     FloorBuilder* set_parameters(float centerx, float centerz, float y, float width, float length);
     FloorBuilder* set_color(float red, float green, float blue);
+    FloorBuilder* set_texture(GLuint index);
     Floor* build();
     void reset_builder();
 private:
     Floor* floor = nullptr;
+    GLuint texture;
     SquareBuilder* squareBuilder = nullptr;
+
 };
 
 #endif // FLOOR_H
