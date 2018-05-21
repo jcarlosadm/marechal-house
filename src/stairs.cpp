@@ -7,7 +7,7 @@
 
 Stairs::Stairs()
 {
-    GLuint textures[6] = {8,8,8,8,8,8};
+    GLuint textures[6] = {1,1,1,1,1,1};
 
     // first stairs
     for(int i = 0; i < 10; ++i)
