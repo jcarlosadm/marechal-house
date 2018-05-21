@@ -5,7 +5,7 @@ GLuint Texture::textures[20];
 bool Texture::sphere = false;
 
 bool Texture::loadImage(string name) {
-    string path = "/home/moabson/projetos/marechal-house/images/" + name;
+    string path = "../images/" + name;
 
     cout << path << endl;
 

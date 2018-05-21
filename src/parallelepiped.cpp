@@ -2,6 +2,37 @@
 
 Parallelepiped::Parallelepiped(float centerx, float centery, float centerz, float width, float height, float length, GLuint textures[6])
 {
+    this->buildShapes(centerx, centery, centerz, width, height, length, textures);
+}
+
+Parallelepiped::Parallelepiped(float centerx, float centery, float centerz, float width, float height, float length, GLuint texture)
+{
+    GLuint array[] = {texture,texture,texture,texture,texture,texture};
+    this->buildShapes(centerx, centery, centerz, width, height, length, array);
+}
+
+Parallelepiped::~Parallelepiped()
+{
+    std::vector<Shape *>::iterator it;
+    for (it = shapes.begin(); it != shapes.end(); ++it)
+        delete (*it);
+
+    shapes.clear();
+}
+
+void Parallelepiped::draw()
+{
+    std::vector<Shape *>::iterator it;
+    for (it = shapes.begin(); it != shapes.end(); ++it) {
+        Shape *shape = *it;
+
+        if (shape != nullptr)
+            shape->draw();
+    }
+}
+
+void Parallelepiped::buildShapes(float centerx, float centery, float centerz, float width, float height, float length, GLuint textures[6])
+{
     float ymin = centery, ymax = centery + height,
             xmin = centerx - width/2, xmax = centerx + width/2,
             zmin = centerz - length/2, zmax = centerz + length/2;
@@ -55,25 +86,4 @@ Parallelepiped::Parallelepiped(float centerx, float centery, float centerz, floa
     shapes.push_back(sb.set_n_vector(0, xmax, ymax, zmax)->set_n_vector(1,xmax, ymin, zmax)->
                      set_n_vector(2,xmin,ymin, zmax)->set_n_vector(3,xmin, ymax, zmax)->set_texture(textures[1])->
                      set_normal_vec(0,0,1)->build());
-
-}
-
-Parallelepiped::~Parallelepiped()
-{
-    std::vector<Shape *>::iterator it;
-    for (it = shapes.begin(); it != shapes.end(); ++it)
-        delete (*it);
-
-    shapes.clear();
-}
-
-void Parallelepiped::draw()
-{
-    std::vector<Shape *>::iterator it;
-    for (it = shapes.begin(); it != shapes.end(); ++it) {
-        Shape *shape = *it;
-
-        if (shape != nullptr)
-            shape->draw();
-    }
 }

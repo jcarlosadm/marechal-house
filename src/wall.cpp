@@ -33,6 +33,12 @@ WallBuilder *WallBuilder::set_texture(GLuint index)
     return this;
 }
 
+WallBuilder *WallBuilder::set_normal(int x, int y, int z)
+{
+    this->square_builder->set_normal_vec(x, y, z);
+    return this;
+}
+
 WallBuilder *WallBuilder::set_height(float ymin, float ymax)
 {
     this->square_builder->set_n_vector(0,this->square_builder->get_n_vector_x(0),

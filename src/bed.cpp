@@ -16,10 +16,12 @@ Bed::Bed()
 
     SquareBuilder sb;
     shapes.push_back(sb.set_n_vector(0,1.35f,-1.0f,-0.75f)->set_n_vector(1,1.35f,-1.0f,0.75f)->
-                     set_n_vector(2,1.35f,-2.0f,0.75f)->set_n_vector(3,1.35f,-2.0f,-0.75f)->set_texture(1)->build());
+                     set_n_vector(2,1.35f,-2.0f,0.75f)->set_n_vector(3,1.35f,-2.0f,-0.75f)->set_texture(1)->
+                     set_normal_vec(-1,0,0)->build());
     sb.reset_builder();
-    shapes.push_back(sb.set_n_vector(0,-1.35f,-1.0f,-0.75f)->set_n_vector(1,-1.35f,-1.0f,0.75f)->
-                     set_n_vector(2,-1.35f,-2.0f,0.75f)->set_n_vector(3,-1.35f,-2.0f,-0.75f)->set_texture(1)->build());
+    shapes.push_back(sb.set_n_vector(0,-1.36f,-1.0f,-0.75f)->set_n_vector(1,-1.36f,-1.0f,0.75f)->
+                     set_n_vector(2,-1.36f,-2.0f,0.75f)->set_n_vector(3,-1.36f,-2.0f,-0.75f)->set_texture(1)->
+                     set_normal_vec(-1,0,0)->build());
 }
 
 Bed::~Bed()

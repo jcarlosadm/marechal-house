@@ -33,6 +33,7 @@ public:
     WallBuilder * set_second_point(float x, float z);
     WallBuilder * set_color(float red, float green, float blue);
     WallBuilder * set_texture(GLuint index);
+    WallBuilder * set_normal(int x, int y, int z);
     Wall * build();
     void reset_builder();
 private:

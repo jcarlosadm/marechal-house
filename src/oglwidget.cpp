@@ -89,12 +89,12 @@ void OGLWidget::defineLighting()
 
     GLfloat luzAmbiente[4]={0.2,0.2,0.2,1.0};
     GLfloat luzDifusa[4]={1.0,1.0,1.0,1.0}; // "cor"
-    GLfloat luzEspecular[4]={1.0, 1.0, 1.0, 1.0};// "brilho"
+    GLfloat luzEspecular[4]={2.0, 2.0, 2.0, 2.0};// "brilho"
     GLfloat posicaoLuz[4]={0.0, 0.0, -2.0, 1.0};
 
     // Capacidade de brilho do material
     GLfloat especularidade[4]={1.0,1.0,1.0,1.0};
-    GLint especMaterial = 20;
+    GLint especMaterial = 40;
 
     // Define a refletância do material
     glMaterialfv(GL_FRONT,GL_SPECULAR, especularidade);

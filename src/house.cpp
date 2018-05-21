@@ -30,31 +30,42 @@ House::House()
     WallBuilder wb;
 
     // right wall
-    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(-5.0f,-7.5f)->set_second_point(-5.0f,7.5f)->build());
+    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(-5.0f,-7.5f)->set_second_point(-5.0f,7.5f)->
+                     set_normal(1,0,0)->build());
     wb.reset_builder();
 
     // left wall
-    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(5.0f,-7.5f)->set_second_point(5.0f,7.5f)->build());
+    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(5.0f,-7.5f)->set_second_point(5.0f,7.5f)->
+                     set_normal(-1,0,0)->build());
     wb.reset_builder();
 
     // back wall
-    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(5.0f,7.5f)->set_second_point(4.2f,7.5f)->build());
+    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(5.0f,7.5f)->set_second_point(4.2f,7.5f)->
+                     set_normal(0,0,-1)->build());
     wb.reset_builder();
-    shapes.push_back(wb.set_height(-2.0f,-0.5f)->set_first_point(4.2f,7.5f)->set_second_point(3.2f,7.5f)->build());
+    shapes.push_back(wb.set_height(-2.0f,-0.5f)->set_first_point(4.2f,7.5f)->set_second_point(3.2f,7.5f)->
+                     set_normal(0,0,-1)->build());
     wb.reset_builder();
-    shapes.push_back(wb.set_height(1.0f,5.0f)->set_first_point(4.2f,7.5f)->set_second_point(3.2f,7.5f)->build());
+    shapes.push_back(wb.set_height(1.0f,5.0f)->set_first_point(4.2f,7.5f)->set_second_point(3.2f,7.5f)->
+                     set_normal(0,0,-1)->build());
     wb.reset_builder();
-    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(3.2f,7.5f)->set_second_point(2.4f,7.5f)->build());
+    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(3.2f,7.5f)->set_second_point(2.4f,7.5f)->
+                     set_normal(0,0,-1)->build());
     wb.reset_builder();
-    shapes.push_back(wb.set_height(-2.0f,-0.5f)->set_first_point(2.4f,7.5f)->set_second_point(1.4f,7.5f)->build());
+    shapes.push_back(wb.set_height(-2.0f,-0.5f)->set_first_point(2.4f,7.5f)->set_second_point(1.4f,7.5f)->
+                     set_normal(0,0,-1)->build());
     wb.reset_builder();
-    shapes.push_back(wb.set_height(1.0f,5.0f)->set_first_point(2.4f,7.5f)->set_second_point(1.4f,7.5f)->build());
+    shapes.push_back(wb.set_height(1.0f,5.0f)->set_first_point(2.4f,7.5f)->set_second_point(1.4f,7.5f)->
+                     set_normal(0,0,-1)->build());
     wb.reset_builder();
-    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(1.4f,7.5f)->set_second_point(0.6f,7.5f)->build());
+    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(1.4f,7.5f)->set_second_point(0.6f,7.5f)->
+                     set_normal(0,0,-1)->build());
     wb.reset_builder();
-    shapes.push_back(wb.set_height(1.0f,5.0f)->set_first_point(0.6f,7.5f)->set_second_point(-0.6f,7.5f)->build());
+    shapes.push_back(wb.set_height(1.0f,5.0f)->set_first_point(0.6f,7.5f)->set_second_point(-0.6f,7.5f)->
+                     set_normal(0,0,-1)->build());
     wb.reset_builder();
-    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(-0.6f,7.5f)->set_second_point(-5.0f,7.5f)->build());
+    shapes.push_back(wb.set_height(-2.0f,5.0f)->set_first_point(-0.6f,7.5f)->set_second_point(-5.0f,7.5f)->
+                     set_normal(0,0,-1)->build());
     wb.reset_builder();
 
     GLuint texturesTop[6] = {
@@ -90,11 +101,10 @@ House::House()
     shapes.push_back(new Parallelepiped(0.0f, 1.0f, -7.5f, 10.0f, 4.0f, 0.1f, texturesTop));
 
     // first wall inside the house
-    shapes.push_back(wb.set_height(-2.0f,2.0f)->set_first_point(1.4f,-0.6f)->set_second_point(1.4f,-6.0f)->build());
-    wb.reset_builder();
+    shapes.push_back(new Parallelepiped(1.4f, -2.0f, -3.3f, 0.1f, 4.0f, 6.6f, 6.0));
 
     // second wall inside the house
-    shapes.push_back(wb.set_height(-2.0f,2.0f)->set_first_point(-1.4f,4.0f)->set_second_point(-1.4f,0.0f)->build());
+    shapes.push_back(new Parallelepiped(-1.4f, -2.0f, 2.0f, 0.1f, 3.9f, 4.0f, 6.0));
 
     // Doors
     DoorBuilder db;
