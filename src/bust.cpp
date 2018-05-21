@@ -81,14 +81,14 @@ void Bust::draw()
         glTranslatef(0.0f,1.55f,0.0f);
         this->base2->draw();
 
-        glTranslatef(0.0f,0.8f,0.0f);
-        glRotatef(-70, 0, 0, 1);
+        glTranslatef(0.0f,0.55f,0.0f);
+        glRotatef(-80, 0, 0, 1);
         glRotatef(90, 0, 1, 0);
 
 //        Texture::sphere = true;
         glBindTexture(GL_TEXTURE_2D, Texture::textures[_textureId]);
         glEnable(GL_TEXTURE_2D);
-        gluSphere(sphere, 0.5, 150, 150);
+        gluSphere(sphere, 0.25, 150, 150);
 //        glutSolidSphere(0.25,50,50);
         gluCylinder(cylinder, 20.0, 20.0, 20.0, 1, 16);
         glDisable(GL_TEXTURE_2D);

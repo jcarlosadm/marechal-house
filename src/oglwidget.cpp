@@ -75,9 +75,12 @@ void OGLWidget::initializeGL()
     Texture::loadTexture("quadro.jpg", 11);
     Texture::loadTexture("porta.png", 12);
     Texture::loadTexture("telhado.jpg", 13);
-    Texture::loadTexture("front_house_left.jpg", 14);
-    Texture::loadTexture("front_house_top.jpg", 15);
-    Texture::loadTexture("front_house_right.jpg", 16);
+    Texture::loadTexture("left.jpg", 14);
+    Texture::loadTexture("top.png", 15);
+    Texture::loadTexture("right.jpg", 16);
+    Texture::loadTexture("orange.png", 17);
+    Texture::loadTexture("inner_left.png", 18);
+    Texture::loadTexture("inner_right.png", 19);
 }
 
 void OGLWidget::defineLighting()
