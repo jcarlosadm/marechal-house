@@ -46,7 +46,7 @@ public:
     float get_n_vector_z(int n);
     SquareBuilder* set_color(float red, float green, float blue);
     SquareBuilder* set_texture(GLuint index);
-    SquareBuilder* set_normal_vec(int values[3]);
+    SquareBuilder* set_normal_vec(int x, int y, int z);
     Square * build();
     void reset_builder();
 private:

@@ -28,27 +28,33 @@ Parallelepiped::Parallelepiped(float centerx, float centery, float centerz, floa
 
     // face inferior : 5
     shapes.push_back(sb.set_n_vector(0, xmax, ymin, zmax)->set_color(0,0,0)->set_n_vector(1,xmax, ymin, zmin)->
-                     set_n_vector(2,xmin,ymin, zmin)->set_n_vector(3,xmin, ymin, zmax)->set_texture(textures[5])->build());
+                     set_n_vector(2,xmin,ymin, zmin)->set_n_vector(3,xmin, ymin, zmax)->set_texture(textures[5])->
+                     set_normal_vec(0,-1,0)->build());
     sb.reset_builder();
     // face superior : 4
     shapes.push_back(sb.set_n_vector(0, xmax, ymax, zmax)->set_n_vector(1,xmax, ymax, zmin)->
-                     set_n_vector(2,xmin,ymax, zmin)->set_n_vector(3,xmin, ymax, zmax)->set_texture(textures[4])->build());
+                     set_n_vector(2,xmin,ymax, zmin)->set_n_vector(3,xmin, ymax, zmax)->set_texture(textures[4])->
+                     set_normal_vec(0,1,0)->build());
     sb.reset_builder();
     // face direita : 3
     shapes.push_back(sb.set_n_vector(0, xmax, ymax, zmin)->set_n_vector(1,xmax, ymin, zmin)->
-                     set_n_vector(2,xmax,ymin, zmax)->set_n_vector(3,xmax, ymax, zmax)->set_texture(textures[3])->build());
+                     set_n_vector(2,xmax,ymin, zmax)->set_n_vector(3,xmax, ymax, zmax)->set_texture(textures[3])->
+                     set_normal_vec(-1,0,0)->build());
     sb.reset_builder();
     // face esquerda : 2
     shapes.push_back(sb.set_n_vector(0, xmin, ymax, zmin)->set_n_vector(1,xmin, ymin, zmin)->
-                     set_n_vector(2,xmin,ymin, zmax)->set_n_vector(3,xmin, ymax, zmax)->set_texture(textures[2])->build());
+                     set_n_vector(2,xmin,ymin, zmax)->set_n_vector(3,xmin, ymax, zmax)->set_texture(textures[2])->
+                     set_normal_vec(1,0,0)->build());
     sb.reset_builder();
     // face frontal : 0
     shapes.push_back(sb.set_n_vector(0, xmax, ymax, zmin)->set_n_vector(1,xmax, ymin, zmin)->
-                     set_n_vector(2,xmin,ymin, zmin)->set_n_vector(3,xmin, ymax, zmin)->set_texture(textures[0])->build());
+                     set_n_vector(2,xmin,ymin, zmin)->set_n_vector(3,xmin, ymax, zmin)->set_texture(textures[0])->
+                     set_normal_vec(0,0,-1)->build());
     sb.reset_builder();
     // face de trás : 1
     shapes.push_back(sb.set_n_vector(0, xmax, ymax, zmax)->set_n_vector(1,xmax, ymin, zmax)->
-                     set_n_vector(2,xmin,ymin, zmax)->set_n_vector(3,xmin, ymax, zmax)->set_texture(textures[1])->build());
+                     set_n_vector(2,xmin,ymin, zmax)->set_n_vector(3,xmin, ymax, zmax)->set_texture(textures[1])->
+                     set_normal_vec(0,0,1)->build());
 
 }
 

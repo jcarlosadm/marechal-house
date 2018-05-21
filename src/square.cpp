@@ -60,10 +60,11 @@ SquareBuilder* SquareBuilder::set_texture(GLuint index)
     return this;
 }
 
-SquareBuilder *SquareBuilder::set_normal_vec(int values[])
+SquareBuilder *SquareBuilder::set_normal_vec(int x, int y, int z)
 {
-    for(int i = 0; i < 3; ++i)
-        this->square->normal_vec[i] = values[i];
+    this->square->normal_vec[0] = x;
+    this->square->normal_vec[1] = y;
+    this->square->normal_vec[2] = z;
 
     return this;
 }

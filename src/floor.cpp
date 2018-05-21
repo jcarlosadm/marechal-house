@@ -52,7 +52,7 @@ FloorBuilder *FloorBuilder::set_texture(GLuint index)
 
 Floor *FloorBuilder::build()
 {
-    this->floor->square = this->squareBuilder->build();
+    this->floor->square = this->squareBuilder->set_normal_vec(0,1,0)->build();
     Floor* floor = this->floor;
     this->floor = nullptr;
     return floor;
